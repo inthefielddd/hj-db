@@ -20,7 +20,9 @@ const Movie = ({ authService }) => {
     return (
         <section className={styles.movie}>
             <Header onLogout={onLogout} />
-            <h1>movie</h1>
+            <section className={styles.wrapper}>
+                <h1>movie</h1>
+            </section>
             <Footer />
         </section>
     );

@@ -37,23 +37,25 @@ const Login = ({ authService }) => {
 
     return (
         <section className={styles.login}>
-            <Header />
-            <section>
-                <h1 className={styles.title}>Login</h1>
-                <ul className={styles.list}>
-                    <li className={styles.item}>
-                        <button className={styles.button} onClick={onLogin}>
-                            <i className={`fab fa-google ${styles.icon}`}></i>
-                            <span>Google</span>
-                        </button>
-                    </li>
-                    <li className={styles.item}>
-                        <button className={styles.button} onClick={onLogin}>
-                            <i className={`fab fa-github ${styles.icon}`}></i>
-                            <span>Github</span>
-                        </button>
-                    </li>
-                </ul>
+            <Header className={styles.header} />
+            <section className={styles.wrapper}>
+                <div className={styles.box}>
+                    <h1 className={styles.title}>Login</h1>
+                    <ul className={styles.list}>
+                        <li className={styles.item}>
+                            <button className={styles.button} onClick={onLogin}>
+                                <i className={`fab fa-google ${styles.icon}`}></i>
+                                <span className={styles.text}>Google</span>
+                            </button>
+                        </li>
+                        <li className={styles.item}>
+                            <button className={styles.button} onClick={onLogin}>
+                                <i className={`fab fa-github ${styles.icon}`}></i>
+                                <span className={styles.text}>Github</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </section>
             <Footer />
         </section>

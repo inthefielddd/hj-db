@@ -1,3 +1,5 @@
+@value movieGrey from "./common/color.css";
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
@@ -12,4 +14,13 @@ code {
 
 * {
     box-sizing: border-box;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: url("https://assets.nflxext.com/ffe/siteui/vlv3/92bb3a0b-7e91-40a0-b27b-f2c3ac9ef6e4/180ca992-4d7b-4274-99be-cf8169176af2/KR-ko-20210322-popsignuptwoweeks-perspective_alpha_website_large.jpg")
+        no-repeat;
 }

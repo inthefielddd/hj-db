@@ -1,0 +1,55 @@
+@value moviePink from "../../common/color.css";
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    padding: 0 4%;
+    justify-content: space-between;
+}
+
+.logo {
+    margin: 0;
+    width: 5rem;
+    font-size: 2rem;
+    font-weight: 800;
+    color: moviePink;
+    margin-right: 1em;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    margin-right: 1em;
+}
+
+.button {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.search {
+    width: 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 0.3rem;
+}
