@@ -3,7 +3,7 @@ import styles from "./app.module.css";
 import Login from "./components/login/login";
 import Movie from "./components/movie/movie";
 
-function App({ authService }) {
+function App({ authService, movieApi }) {
     return (
         <div className={styles.app}>
             <BrowserRouter>
@@ -12,7 +12,7 @@ function App({ authService }) {
                         <Login authService={authService} />
                     </Route>
                     <Route exact path='/movie'>
-                        <Movie authService={authService} />
+                        <Movie authService={authService} movieApi={movieApi} />
                     </Route>
                 </Switch>
             </BrowserRouter>

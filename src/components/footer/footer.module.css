@@ -1,9 +1,13 @@
+@value movieBlack from "../../common/color.css";
+
 .footer {
     width: 100%;
-    padding: 1rem;
+    padding: 2rem;
+    background-color: movieBlack;
 }
 .text {
     text-align: center;
     margin: 0;
     font-size: 14px;
+    font-weight: 700;
 }

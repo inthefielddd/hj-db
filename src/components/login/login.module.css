@@ -1,4 +1,4 @@
-@value moviePink from "../../common/color.css";
+@value moviePink, movieWhite from "../../common/color.css";
 
 .login {
     width: 100%;
@@ -27,7 +27,7 @@
 }
 .title {
     font-size: 1.7rem;
-    color: white;
+    color: movieWhite;
 }
 
 .list {
@@ -46,7 +46,7 @@
     outline: 0;
     border: 0;
     background-color: transparent;
-    background-color: white;
+    background-color: movieWhite;
     border-radius: 1em;
 }
 
