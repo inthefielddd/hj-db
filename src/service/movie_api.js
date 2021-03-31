@@ -36,5 +36,15 @@ class MovieApi {
         const data = await response.json();
         return data.results;
     }
+
+    //검색
+    async search(query) {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/search/movie?api_key=${this.key}&language=en-US&query=${query}&page=1&include_adult=false&key=${this.key}`,
+            this.getRequestOptions
+        );
+        const data = await response.json();
+        return data.results;
+    }
 }
 export default MovieApi;

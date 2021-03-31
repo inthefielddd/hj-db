@@ -1,11 +1,15 @@
 import React, { useRef } from "react";
+import { useHistory } from "react-router";
 import styles from "./header.module.css";
 
-const Header = ({ onLogout }) => {
+const Header = ({ onLogout, onSearch }) => {
     const inputRef = useRef();
+    const history = useHistory();
 
     const handleSearch = () => {
-        console.log(inputRef.current.value);
+        const value = inputRef.current.value;
+        console.log(value);
+        onSearch(value);
     };
 
     const onClick = () => {
@@ -17,10 +21,16 @@ const Header = ({ onLogout }) => {
             handleSearch();
         }
     };
+
+    const onLogo = () => {
+        history.push("/");
+    };
     return (
         <header className={styles.header}>
             <div>
-                <h1 className={styles.logo}>HJDB</h1>
+                <h1 className={styles.logo} onClick={onLogo}>
+                    HJDB
+                </h1>
             </div>
             {onLogout && (
                 <ul className={styles.list}>

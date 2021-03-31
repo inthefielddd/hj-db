@@ -4,9 +4,11 @@ import Footer from "../footer/footer";
 import Header from "../header/header";
 import { useHistory } from "react-router";
 import MovieList from "../movie_list/movie_list";
+import MovieItem from "../movie_item/movie_item";
 
 const Movie = ({ authService, movieApi }) => {
     const history = useHistory();
+    const [movies, setMovies] = useState([]);
 
     //인기있는 영화
     const [popularMovies, setPopularMovies] = useState([]);
@@ -15,6 +17,17 @@ const Movie = ({ authService, movieApi }) => {
 
     const onLogout = () => {
         authService.logout();
+    };
+    //search
+    const search = (query) => {
+        movieApi //
+            .search(query)
+            .then((movies) => {
+                setMovies(movies);
+                setPopularMovies(null);
+                setUpcomingMovies(null);
+                setTopratedMovies(null);
+            });
     };
 
     //인기있는 영화 목록가져오기
@@ -54,9 +67,21 @@ const Movie = ({ authService, movieApi }) => {
     });
     return (
         <section className={styles.movie}>
-            <Header className={styles.header} onLogout={onLogout} />
+            <Header className={styles.header} onLogout={onLogout} onSearch={search} />
+
             <section className={styles.category}>
-                <div className={styles.topRated}>
+                {search && (
+                    <div className={styles.search_movies}>
+                        {movies.map((movie) => (
+                            <>
+                                <h2 className={styles.title}>Searching Movie: {movie.title}</h2>
+                                <MovieItem movie={movie} />
+                            </>
+                        ))}
+                    </div>
+                )}
+
+                <div className={styles.toprated}>
                     <h2 className={styles.title}>Top Rated Movies</h2>
                     <MovieList movies={topratedMovies} />
                 </div>

@@ -11,12 +11,15 @@
     background-color: movieDarkGrey;
 }
 
-.topRated,
+.top_rated,
 .popular,
 .upcoming {
     margin-bottom: 2em;
 }
 
-.topRated {
+.top_rated {
     margin-top: 2em;
+}
+
+.search_movies {
 }
