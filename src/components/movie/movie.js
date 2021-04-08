@@ -5,6 +5,7 @@ import Header from "../header/header";
 import { useHistory } from "react-router";
 import MovieList from "../movie_list/movie_list";
 import MovieItem from "../movie_item/movie_item";
+import MovieDetail from "../movie_detail/movie_detail";
 
 const Movie = ({ authService, movieApi }) => {
     const history = useHistory();
@@ -15,6 +16,14 @@ const Movie = ({ authService, movieApi }) => {
     const [upcomingMovies, setUpcomingMovies] = useState([]);
     const [topratedMovies, setTopratedMovies] = useState([]);
 
+    //영화를 클릭했을때
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
+    const selectMovie = (movie) => {
+        setSelectedMovie(movie);
+        console.log(movie);
+    };
+
     const onLogout = () => {
         authService.logout();
     };
@@ -24,9 +33,9 @@ const Movie = ({ authService, movieApi }) => {
             .search(query)
             .then((movies) => {
                 setMovies(movies);
-                setPopularMovies(null);
-                setUpcomingMovies(null);
-                setTopratedMovies(null);
+                setPopularMovies([]);
+                setUpcomingMovies([]);
+                setTopratedMovies([]);
             });
     };
 
@@ -65,6 +74,7 @@ const Movie = ({ authService, movieApi }) => {
             }
         });
     });
+
     return (
         <section className={styles.movie}>
             <Header className={styles.header} onLogout={onLogout} onSearch={search} />
@@ -75,27 +85,34 @@ const Movie = ({ authService, movieApi }) => {
                         {movies.map((movie) => (
                             <>
                                 <h2 className={styles.title}>Searching Movie: {movie.title}</h2>
-                                <MovieItem movie={movie} />
+                                <MovieItem key={movie.id} movie={movie} />
                             </>
                         ))}
                     </div>
                 )}
 
+                {/* 이세개의 리스트들을 검색할떄는 안보이게 하고 싶다... */}
                 <div className={styles.toprated}>
                     <h2 className={styles.title}>Top Rated Movies</h2>
-                    <MovieList movies={topratedMovies} />
+                    <MovieList movies={topratedMovies} onMovieButton={selectMovie} selectedMovie={selectedMovie} />
                 </div>
 
                 <div className={styles.popular}>
                     <h2 className={styles.title}>Popular Movies</h2>
-                    <MovieList movies={popularMovies} />
+                    <MovieList movies={popularMovies} onMovieButton={selectMovie} selectedMovie={selectedMovie} />
                 </div>
 
                 <div className={styles.upcoming}>
                     <h2 className={styles.title}>Upcoming Movies</h2>
-                    <MovieList movies={upcomingMovies} />
+                    <MovieList movies={upcomingMovies} onMovieButton={selectMovie} selectedMovie={selectedMovie} />
                 </div>
             </section>
+            {/* Detail */}
+            {selectedMovie && (
+                <div className={styles.detail}>
+                    <MovieDetail movie={selectedMovie} />
+                </div>
+            )}
             <Footer />
         </section>
     );

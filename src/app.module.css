@@ -1,9 +1,12 @@
 @value movieGrey from "./common/color.css";
 
 .app {
+    position: relative;
     width: 100%;
     min-height: 100%;
     display: flex;
     justify-content: center;
     background-color: movieGrey;
+    background: url("https://assets.nflxext.com/ffe/siteui/vlv3/92bb3a0b-7e91-40a0-b27b-f2c3ac9ef6e4/180ca992-4d7b-4274-99be-cf8169176af2/KR-ko-20210322-popsignuptwoweeks-perspective_alpha_website_large.jpg")
+        no-repeat;
 }

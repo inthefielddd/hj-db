@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./movie_item.module.css";
 
-const MovieItem = ({ movie }) => {
+const MovieItem = ({ movie, onMovieButton }) => {
     return (
-        <div className={styles.movie}>
+        <li className={styles.movie} onClick={() => onMovieButton(movie)}>
             <img className={styles.poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-        </div>
+        </li>
     );
 };
 

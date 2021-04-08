@@ -44,6 +44,17 @@ class MovieApi {
             this.getRequestOptions
         );
         const data = await response.json();
+        console.log(data.results);
+        return data.results;
+    }
+
+    //Youtube Video
+    async videos(movieId) {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${this.key}&language=en-US&key=${this.key}`,
+            this.getRequestOptions
+        );
+        const data = await response.json();
         return data.results;
     }
 }

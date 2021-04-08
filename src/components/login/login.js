@@ -57,7 +57,7 @@ const Login = ({ authService }) => {
                     </ul>
                 </div>
             </section>
-            <Footer />
+            <Footer className={styles.footer} />
         </section>
     );
 };

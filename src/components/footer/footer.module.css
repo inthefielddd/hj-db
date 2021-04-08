@@ -1,9 +1,10 @@
-@value movieBlack from "../../common/color.css";
+@value movieBlack, movieWhite from "../../common/color.css";
 
 .footer {
     width: 100%;
     padding: 2rem;
     background-color: movieBlack;
+    color: movieWhite;
 }
 .text {
     text-align: center;
